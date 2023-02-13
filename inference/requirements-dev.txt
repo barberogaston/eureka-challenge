@@ -1,0 +1,6 @@
+httpx
+pytest
+pytest-clarity
+pytest-cov
+pytest-mock
+pytest-sugar

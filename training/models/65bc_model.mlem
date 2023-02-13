@@ -1,0 +1,33 @@
+artifacts:
+  data:
+    hash: 760b2c6a248200e182c7da7c6e40aa6a
+    size: 644804
+    uri: 65bc_model
+call_orders:
+  predict:
+  - - model
+    - predict
+object_type: model
+processors:
+  model:
+    methods:
+      predict:
+        args:
+        - name: X
+          type_:
+            type: unspecified
+        name: predict
+        returns:
+          type: unspecified
+        varkw: predict_params
+    type: sklearn_pipeline
+requirements:
+- module: sklearn
+  package_name: scikit-learn
+  version: 1.2.1
+- package_name: libgomp1
+  type: unix
+- module: lightgbm
+  version: 3.3.5
+- module: pycaret
+  version: 3.0.0.rc9

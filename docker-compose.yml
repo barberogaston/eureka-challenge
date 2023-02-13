@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  training:
+    build:
+      context: training
+    ports:
+      - 8888:8888
+    volumes:
+      - ./training:/app
+    depends_on:
+      - mlflow
+  mlflow:
+    build:
+      context: experiments
+    ports:
+      - 5000:5000
+    volumes:
+      - "./experiments:/mlflow"
+    environment:
+      BACKEND_URI: sqlite:////mlflow/mlflow.db
+      ARTIFACT_ROOT: /mlflow/artifacts
+  inference:
+    build:
+      context: .
+      dockerfile: inference/Dockerfile
+      args:
+        - MODEL_USI=65bc
+    environment:
+      - MODELS_PATH=/models
+      - MODULE_NAME=housing_inference.app
+    ports:
+      - 8080:8080
+    volumes:
+      - "./training/models:/models"
