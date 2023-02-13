@@ -12,7 +12,7 @@ Although I suggest running everything using Docker, if you wish to run things lo
 
 ### 💻 Platform
 
-This repository was developed on a M1 MacBook Pro with MacOS `v12.6.3`.
+This repository was developed on a M1 MacBook Pro with MacOS `v12.6.3` and tested on the latter as well as on an amd64 Linux Mint machine with Linux Kernel `v5.13.0-40-generic`.
 
 ### 🥲 Misc
 
